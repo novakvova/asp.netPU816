@@ -34,18 +34,22 @@ namespace Bicycle.Web.Controllers
         [HttpPost]
         public ActionResult Create(AnimalAddVM model)
         {
-            ApplicationDbContext context = new ApplicationDbContext();
-            Animal animal = new Animal
+            if (ModelState.IsValid)
             {
-                Name = model.Name,
-                UrlLink = model.ImageUrl,
-                CreateDate = DateTime.Now,
-                ModifyDate = DateTime.Now,
-                DeleteDate = DateTime.Now
-            };
-            context.Animals.Add(animal);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+                ApplicationDbContext context = new ApplicationDbContext();
+                Animal animal = new Animal
+                {
+                    Name = model.Name,
+                    UrlLink = model.ImageUrl,
+                    CreateDate = DateTime.Now,
+                    ModifyDate = DateTime.Now,
+                    DeleteDate = DateTime.Now
+                };
+                context.Animals.Add(animal);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
     }
 }

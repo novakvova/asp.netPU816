@@ -17,8 +17,11 @@ namespace Bicycle.Web.Models
     public class AnimalAddVM
     {
         [Display(Name = "Вкажіть назву тварини")]
+        [Required(ErrorMessage ="Вкажіть назву тварини")]
         public string Name { get; set; }
+
         [Display(Name = "Вкажіть посилання на фото тварини")]
+        [Required(ErrorMessage = "Вкажіть фото для тварини")]
         public string ImageUrl { get; set; }
     }
 }
