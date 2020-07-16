@@ -144,14 +144,16 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Entities\Animal.cs" />
     <Compile Include="Entities\ApplicationDbContext.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007150651067_Add tblAnimals.cs" />
-    <Compile Include="Migrations\202007150651067_Add tblAnimals.designer.cs">
-      <DependentUpon>202007150651067_Add tblAnimals.cs</DependentUpon>
+    <Compile Include="Migrations\202007160616590_Add new tblAnimals.cs" />
+    <Compile Include="Migrations\202007160616590_Add new tblAnimals.designer.cs">
+      <DependentUpon>202007160616590_Add new tblAnimals.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AnimalVM.cs" />
     <Compile Include="Models\ProductVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -191,8 +193,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
-    <Content Include="Views\Shop\Search.cshtml" />
     <Content Include="Views\Animals\Index.cshtml" />
+    <Content Include="Views\Shop\Search.cshtml" />
+    <Content Include="Views\Animals\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -207,8 +210,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007150651067_Add tblAnimals.resx">
-      <DependentUpon>202007150651067_Add tblAnimals.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007160616590_Add new tblAnimals.resx">
+      <DependentUpon>202007160616590_Add new tblAnimals.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,11 +8,8 @@ using System.Web;
 namespace Bicycle.Web.Entities
 {
     [Table("tblAnimals")]
-    public class Animal
+    public class Animal : BaseEntity<int>
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required, StringLength(255)]
         public string Name { get; set; }
 

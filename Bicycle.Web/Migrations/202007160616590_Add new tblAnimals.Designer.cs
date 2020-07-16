@@ -7,13 +7,13 @@ namespace Bicycle.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddtblAnimals : IMigrationMetadata
+    public sealed partial class AddnewtblAnimals : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddtblAnimals));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddnewtblAnimals));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007150651067_Add tblAnimals"; }
+            get { return "202007160616590_Add new tblAnimals"; }
         }
         
         string IMigrationMetadata.Source

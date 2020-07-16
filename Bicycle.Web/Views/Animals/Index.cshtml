@@ -1,18 +1,18 @@
-﻿@model IEnumerable<Bicycle.Web.Entities.Animal>
+﻿@model IEnumerable<Bicycle.Web.Models.AnimalVM>
 
 @{
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
 
 <h2>Список тварин з БД</h2>
-
+<a href="@Url.Action("Create")" class="btn btn-success">Додати тварину</a>
 <table class="table">
     <tr>
         <th>
-            Назва
+            @Html.DisplayNameFor(model=>model.Name)
         </th>
         <th>
-            Фото
+            @Html.DisplayNameFor(model => model.ImageUrl)
         </th>
     </tr>
 
@@ -23,7 +23,7 @@
             @item.Name
         </td>
         <td>
-            <img src="@item.UrlLink" alt="Alternate Text" width="150" />
+            <img src="@item.ImageUrl" alt="Alternate Text" width="150" />
         </td>
     </tr>
 }
