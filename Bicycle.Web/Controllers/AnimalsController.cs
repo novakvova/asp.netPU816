@@ -18,7 +18,7 @@ namespace Bicycle.Web.Controllers
             repo = new AnimalRepostory();
         }
         // GET: Animals
-        public ActionResult Index()
+        public ActionResult Index(FilterModel search)
         {
             //ApplicationDbContext context = new ApplicationDbContext();
 
@@ -29,10 +29,16 @@ namespace Bicycle.Web.Controllers
             //        Name=a.Name,
             //        ImageUrl=a.UrlLink
             //    }).ToList();
-
+            IEnumerable<Animal> list;
+            if (search.Name!=null)
+                list = repo.GetAll(x=>x.Name.Contains(search.Name));
+            else
+            {
+                list = repo.GetAll();
+            }
             var mapper =  MyAutoMapperConfig.GetAutoMapper();
             // сопоставление
-            var model = mapper.Map<List<AnimalVM>>(repo.GetAll());
+            var model = mapper.Map<List<AnimalVM>>(list);
 
             return View(model);
         }

@@ -159,6 +159,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnimalVM.cs" />
+    <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\ProductVM.cs" />
     <Compile Include="MyAutoMapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

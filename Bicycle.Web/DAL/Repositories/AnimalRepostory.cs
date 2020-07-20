@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,9 +16,14 @@ namespace Bicycle.Web.DAL.Repositories
         {
             db = new ApplicationDbContext();
         }
-        public IEnumerable<Animal> GetAll()
+        public IEnumerable<Animal> GetAll(Expression<Func<Animal, bool>> filter = null)
         {
-            return db.Animals.ToList();
+            var query = db.Animals.AsQueryable();
+            if(filter!=null)
+            {
+                query = query.Where(filter);
+            }
+            return query.ToList();
         }
 
         public Animal Get(int id)
