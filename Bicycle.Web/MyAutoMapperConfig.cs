@@ -12,7 +12,11 @@ namespace Bicycle.Web
     {
         public static Mapper GetAutoMapper()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Animal, AnimalVM>());
+            var config = new MapperConfiguration(cfg => 
+            
+                cfg.CreateMap<Animal, AnimalVM>()
+                    .ForMember("UrlLink", opt => opt.MapFrom(c => "/Uploading/"+c.UrlLink))
+                );
 
             var mapper = new Mapper(config);
 

@@ -4,6 +4,7 @@ using Bicycle.Web.Entities;
 using Bicycle.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -52,13 +53,17 @@ namespace Bicycle.Web.Controllers
         [HttpPost]
         public ActionResult Create(AnimalAddVM model)
         {
+            string fileName = Path.GetRandomFileName()+".jpg";
+            string serverPath = Server.MapPath("~/Uploading");
+            string fileSave = Path.Combine(serverPath, fileName);
+            model.ImageFile.SaveAs(fileSave);
             if (ModelState.IsValid)
             {
                 ApplicationDbContext context = new ApplicationDbContext();
                 Animal animal = new Animal
                 {
                     Name = model.Name,
-                    UrlLink = model.ImageUrl,
+                    UrlLink = fileName,
                     CreateDate = DateTime.Now,
                     ModifyDate = DateTime.Now,
                     DeleteDate = DateTime.Now
@@ -69,5 +74,15 @@ namespace Bicycle.Web.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            repo.Delete(id);
+            repo.Save();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

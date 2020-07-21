@@ -20,9 +20,9 @@ namespace Bicycle.Web.Models
         [Required(ErrorMessage ="Вкажіть назву тварини")]
         public string Name { get; set; }
 
-        [Display(Name = "Вкажіть посилання на фото тварини")]
-        [Required(ErrorMessage = "Вкажіть фото для тварини")]
-        public string ImageUrl { get; set; }
+        [Display(Name = "Оберіть фото для тварини")]
+        [Required(ErrorMessage = "Оберіть фото для тварини")]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 
     public class AnimalEditVM
