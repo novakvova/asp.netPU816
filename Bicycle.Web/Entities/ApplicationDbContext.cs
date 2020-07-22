@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Bicycle.Web.Entities
 {
-    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
+    //[DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class ApplicationDbContext : DbContext 
     {
         public ApplicationDbContext() : base("DefaultConnection")

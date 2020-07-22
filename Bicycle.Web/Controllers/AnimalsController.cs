@@ -53,13 +53,26 @@ namespace Bicycle.Web.Controllers
         [HttpPost]
         public ActionResult Create(AnimalAddVM model)
         {
+            if(model.ImageFile==null)
+            {
+                ModelState.AddModelError("ImageFile", "Оберіть фото для тварини!");
+                return View(model);
+            }
+
+            var list = repo.GetAll(x => x.Name == model.Name).ToList();
+            if (list.Count > 0)
+            {
+                ModelState.AddModelError("Name", "Тварина з даним ім'ям уже є!");
+                return View(model);
+            }
+
             string fileName = Path.GetRandomFileName()+".jpg";
             string serverPath = Server.MapPath("~/Uploading");
             string fileSave = Path.Combine(serverPath, fileName);
             model.ImageFile.SaveAs(fileSave);
             if (ModelState.IsValid)
             {
-                ApplicationDbContext context = new ApplicationDbContext();
+                
                 Animal animal = new Animal
                 {
                     Name = model.Name,
@@ -68,8 +81,10 @@ namespace Bicycle.Web.Controllers
                     ModifyDate = DateTime.Now,
                     DeleteDate = DateTime.Now
                 };
-                context.Animals.Add(animal);
-                context.SaveChanges();
+                repo.Create(animal);
+                repo.Save();
+                //context.Animals.Add(animal);
+                //context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);

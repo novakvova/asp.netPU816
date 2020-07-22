@@ -16,14 +16,15 @@
     <div class="form-group">
         @Html.LabelFor(model => model.ImageFile)
         <div class="custom-file">
-            <input type="file" class="custom-file-input" name="ImageFile" id="validatedCustomFile" required>
+            <input type="file" class="custom-file-input" name="ImageFile" id="validatedCustomFile">
             <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
             <div class="invalid-feedback">
-                @Html.ValidationMessageFor(model => model.ImageFile)
+
             </div>
         </div>
+        @Html.ValidationMessageFor(model => model.ImageFile, null, new { @class="text-danger" })
 
-        
+
     </div>
 
     <input type="submit" value="Додати тварину" />
