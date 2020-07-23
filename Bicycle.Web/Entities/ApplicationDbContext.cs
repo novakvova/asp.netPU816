@@ -14,5 +14,7 @@ namespace Bicycle.Web.Entities
         }
 
         public DbSet<Animal> Animals { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

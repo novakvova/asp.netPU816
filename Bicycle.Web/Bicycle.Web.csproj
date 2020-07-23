@@ -177,18 +177,31 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="DAL\Repositories\CategoryRepostory.cs" />
     <Compile Include="DAL\Repositories\AnimalRepostory.cs" />
     <Compile Include="DAL\Repositories\IRepository.cs" />
     <Compile Include="Entities\Animal.cs" />
     <Compile Include="Entities\ApplicationDbContext.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007230617178_Add table tblCategories.cs" />
+    <Compile Include="Migrations\202007230617178_Add table tblCategories.designer.cs">
+      <DependentUpon>202007230617178_Add table tblCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007230800117_Add table tblProducts.cs" />
+    <Compile Include="Migrations\202007230800117_Add table tblProducts.designer.cs">
+      <DependentUpon>202007230800117_Add table tblProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnimalVM.cs" />
+    <Compile Include="Models\CategorisVM.cs" />
     <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\ProductVM.cs" />
     <Compile Include="MyAutoMapperConfig.cs" />
@@ -233,6 +246,8 @@
     <Content Include="Views\Animals\Index.cshtml" />
     <Content Include="Views\Shop\Search.cshtml" />
     <Content Include="Views\Animals\Create.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -246,6 +261,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202007230617178_Add table tblCategories.resx">
+      <DependentUpon>202007230617178_Add table tblCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007230800117_Add table tblProducts.resx">
+      <DependentUpon>202007230800117_Add table tblProducts.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
