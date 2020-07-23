@@ -17,6 +17,10 @@ namespace Bicycle.Web
 
             CreateMap<Category, CategoryVM>()
                     .ForMember("UrlLink", opt => opt.MapFrom(c => "/Uploading/" + c.Image));
+            
+            CreateMap<Category, SelectItemVM>();
+
+            CreateMap<Product, ProductVM>();
         }
     }
 

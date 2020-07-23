@@ -180,6 +180,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="DAL\Repositories\ProductRepostory.cs" />
     <Compile Include="DAL\Repositories\CategoryRepostory.cs" />
     <Compile Include="DAL\Repositories\AnimalRepostory.cs" />
     <Compile Include="DAL\Repositories\IRepository.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\AnimalVM.cs" />
     <Compile Include="Models\CategorisVM.cs" />
     <Compile Include="Models\FilterModel.cs" />
+    <Compile Include="Models\HelpersVM.cs" />
     <Compile Include="Models\ProductVM.cs" />
     <Compile Include="MyAutoMapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -241,13 +243,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Animals\Index.cshtml" />
     <Content Include="Views\Shop\Search.cshtml" />
     <Content Include="Views\Animals\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shop\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
